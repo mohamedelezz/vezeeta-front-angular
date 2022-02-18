@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditedataComponent } from './editedata/editedata.component';
+import { FormComponent } from './form/form.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { VezetaCardsComponent } from './vezeta-cards/vezeta-cards.component';
 
-const routes: Routes = [];
+// const newLocal = 'form';
+const routes: Routes = [
+  { path: 'cards', component:VezetaCardsComponent},
+   {path:"form",component:FormComponent},
+   {path:'signin',component:SignInComponent},
+   {path:'signup',component:SignUpComponent},
+   {path:'alldata',component:EditedataComponent},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
