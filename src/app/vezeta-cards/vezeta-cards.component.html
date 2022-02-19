@@ -13,16 +13,12 @@
                     <h5> <span> Specialization :</span> {{i.specialization}} </h5>
                     <h5> <span> Fees :</span> {{i.fees}} </h5>
 
-                    <div *ngIf="i.available">
+                    <div >
                         <label class="btn btn-primary ml-3">
                             <input style="background-color: transparent; border: none;"  type="button" name="options" id="option2" value = "Available">
                         </label>
                     </div>
-                    <div *ngIf="!i.available">
-                        <label class="btn btn-primary ml-3">
-                            <input style="background-color: transparent; border: none;"  type="button" name="options" id="option2" value = "Not Available">
-                        </label>
-                    </div>
+                    
 
                 </div>
             </div>

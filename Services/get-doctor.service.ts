@@ -6,12 +6,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GetDoctorService {
-  baseURL: string = "http://localhost:3000"
+  baseURL: string = "http://localhost:3000/doctor"
 
   constructor(private http: HttpClient) { }
 
   gitInfo(): Observable<any> {
-    return this.http.get(`${this.baseURL}/doctor`)
+    return this.http.get(`${this.baseURL}`)
   }
- 
+  deleteData(id: any): Observable<any> {
+    return this.http.delete<any>(`${this.baseURL}/${id}`)
+  }
+  adddata(data: any) {
+    return this.http.post<any>(this.baseURL, data)
+  }
+  edite(id: any, data: any) {
+    return this.http.patch<any>(`${this.baseURL}/${id}`, data)
+  }
 }

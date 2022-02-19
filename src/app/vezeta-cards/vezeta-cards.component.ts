@@ -8,10 +8,7 @@ import { GetDoctor } from '../models/DoctorDb';
 })
 export class VezetaCardsComponent implements OnInit {
 
-  image:any= Math.floor(Math.random() * 5)+1
-
-  // const x=  Math.floor(Math.random() * 6)
-      
+  image:any= Math.floor(Math.random() * 5)+1      
   
   doctors: GetDoctor[] = []
 

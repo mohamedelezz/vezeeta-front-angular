@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { GetDoctorService } from 'Services/get-doctor.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -9,29 +10,49 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class FormComponent implements OnInit {
 
   myForm?: any;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private _doctorServices: GetDoctorService,
+    private _router: Router) { }
 
 
   ngOnInit(): void {
 
-    // const Address = this.fb.group({
-    //   Governorate: ['', [Validators.required]],
-    //   Center: ['', [Validators.required]],
-    //   Street: ['', [Validators.required]],
-    // })
-
     this.myForm = this.fb.group({
-      doctorName: ['', [Validators.required]],
-      // email: ['', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$")]],
-      // password: ['', [Validators.required, Validators.minLength(8)]],
-      discription: ['', [Validators.required] ],
-      phone: ['', [Validators.required] ],
-      specialization: ['', [Validators.required] ],
-      rate: ['', [Validators.required] ],
-      fees: ['', [Validators.required] ],
-      available: ['', [Validators.required] ],
+      name: ['', [Validators.required]],
+      discription: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      specialization: ['', [Validators.required]],
+      rate: ['', [Validators.required]],
+      fees: ['', [Validators.required]],
+      // available: ['', [Validators.required]],
     })
 
+  }
+  get name() {
+    return this.myForm.get('name');
+  }
+  get discription() {
+    return this.myForm.get('discription');
+  }
+  get phone() {
+    return this.myForm.get('phone');
+  }
+  get specialization() {
+    return this.myForm.get('specialization');
+  }
+  get rate() {
+    return this.myForm.get('rate');
+  }
+  get fees() {
+    return this.myForm.get('fees');
+  }
+  onSubmit() {
+    this._doctorServices.adddata(this.myForm.value).subscribe(
+      res => { this._router.navigate(['alldata']) },
+      err => {
+        console.log(err)
+      }
+    )
   }
 
 }

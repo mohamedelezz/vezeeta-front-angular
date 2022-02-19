@@ -14,6 +14,7 @@ import { BtnComponent } from './btn/btn.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditedataComponent } from './editedata/editedata.component';
 import { ModalComponent } from './modal/modal.component';
+import { ShowDeleteComponent } from './show-delete/show-delete.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ModalComponent } from './modal/modal.component';
     BtnComponent,
     EditedataComponent,
     ModalComponent,
+    ShowDeleteComponent,
     
   ],
   imports: [
